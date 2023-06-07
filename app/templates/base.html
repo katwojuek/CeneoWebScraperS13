@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pl">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Datatables CSS -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+		<!-- jQuery & Datatables -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+        <!-- Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+        <title>Ceneo Web Scraper</title>
+    </head>
+    <body>
+        <header class="container text-center">
+            <h1>Ceneo Web Scraper</h1>
+        </header>
+        <nav class="navbar navbar-expand-lg navbar-light container" style="background-color: #d1e7dd; color: #0f5132; border-color: #badbcc;">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url_for('index')}}"><i class="bi bi-house-fill"></i> Strona główna</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url_for('extract')}}"><i class="bi bi-cloud-download-fill"></i>
+ Pobierz produkt</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url_for('products')}}"><i class="bi bi-list-stars"></i> Lista produktów</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url_for('author')}}"><i class="bi bi-person-circle"></i> O autorze</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row text-center">
+                <div class="col">
+                    <h2>{% block title %}{% endblock %}</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    {% block content %}{% endblock %}
+                </div>
+            </div>
+        </div>
+        <footer class="container alert alert-success fixed-bottom">
+            (c) Katarzyna Wójcik, Uniwersytet Ekonomiczny w Krakowie
+        </footer>
+        {% block scripts %}{% endblock %}
+    </body>
+</html>
