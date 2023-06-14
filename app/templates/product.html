@@ -1,24 +1,8 @@
 {% extends 'base.html' %}
 {% block title %}Opinie o produkcie{% endblock %}
 {% block content %}
-<table id='opinions' class="table table-striped table-success">
-    <thead>
-        <tr>
-            <th>Kol1</th>
-            <th>Kol2</th>
-        </tr>
-    </thead>    
-    <tbody>
-        <tr>
-            <td>Data1</td>
-            <td>Data2</td>
-        </tr>
-        <tr>
-            <td>Data3</td>
-            <td>Data4</td>
-        </tr>
-    </tbody>
-</table>
+<h3>{{product_code}}</h3>
+{{opinions|safe}}
 {% endblock %}
 {% block scripts %}
 <script>

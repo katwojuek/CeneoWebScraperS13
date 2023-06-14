@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 {% block title %}Pobieranie opinii o rodukcie{% endblock %}
 {% block content %}
-<form method="POST" action="">
+<form method="POST" action="{{url_for('extract')}}">
     <div class="row g-3 align-items-center">
         <div class="col-auto">
             <label for="product_id" class="col-form-label">Kod produktu</label>
         </div>
         <div class="col-auto">
-            <input type="text" required id="product_id" name="product_id" placeholder="Wpisz kod produktu" class="form-control" aria-describedby="passwordHelpInline">
+            <input type="text" required id="product_code" name="product_code" placeholder="Wpisz kod produktu" class="form-control" aria-describedby="passwordHelpInline">
         </div>
         <div class="col-auto">
             <input type="submit" class="btn btn-success" value="Pobierz">
