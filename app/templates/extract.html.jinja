@@ -1,4 +1,23 @@
 {% extends "base.html.jinja" %}
 {% block content %}
-    <p>To jest strona do ekstrakcji opinii o produkcie.</p>
+    <h2 class="mt-3 mb-3 text-center">Ekstrakcja opinii</h2>
+    <form method="POST" action="{{url_for('extract')}}" class="container">
+        <div class="row g-3 align-items-center">
+            <div class="col-auto">
+                <label for="product_id" class="col-form-label">Kod produktu z Ceneo.pl</label>
+            </div>
+            <div class="col-auto">
+                <input type="text" name="product_id" id="product_id" class="form-control" aria-describedby="product_idHelpInline" placeholder="Podaj kod produktu">
+            </div>
+            <div class="col-auto">
+                <span id="product_idHelpInline" class="form-text">
+                Kod produktu musi zawierać 5-10 cyfr.
+                </span>
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-dark">Pobierz opinie</button>
+            </div>
+
+        </div>
+    </form>
 {% endblock content %}

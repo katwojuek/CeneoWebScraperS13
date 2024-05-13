@@ -1,12 +1,20 @@
 from app import app
-from flask import render_template
+import requests
+from flask import render_template, request, redirect, url_for
 
 @app.route('/')
 def index():
     return render_template("index.html.jinja")
 
-@app.route('/extract')
+@app.route('/extract', methods=['POST', 'GET'])
 def extract():
+    if request.method == 'POST':
+        product_id = request.form.get('product_id')
+        url = f'https://www.ceneo.pl/{product_id}'
+        response = requests.get(url)
+        if response.status_code == requests.codes['ok']:
+            # proces ekstrakcji opinii
+            return redirect(url_for('product', product_id=product_id))
     return render_template("extract.html.jinja")
 
 @app.route('/products')
